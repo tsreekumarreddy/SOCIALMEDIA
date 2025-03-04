@@ -32,8 +32,7 @@ function showTodos(id) {
       data &&
         data.map((value) => {
           str += `<div>
-        <b>${value.title}</b>
-        <p>${value.completed}</p>
+       <input type='checkbox' ${value.completed && "checked"}>${value.title}
         </div>`;
         });
       content.innerHTML = str;
@@ -81,7 +80,7 @@ function showHome() {
      <div class='row'>
       <div class='d-flex justify-content-between bg-primary text-light'>
        <div>My Social Media</div>
-       <div id='username'></div>
+       <div id='username'>${userId}</div>
       </div>
      </div>
      <div class='row'>
@@ -103,7 +102,9 @@ function showHome() {
      </div>
    </div>
   `;
+  let name=selUser.options[selUser.selectedIndex].text
   root.innerHTML = str;
+  username.innerHTML=name
   showPosts(userId);
 }
 
